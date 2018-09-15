@@ -48,12 +48,12 @@ $response = '';
 		else if ($string_exploded[0] == "delete" && $chatId == -1001296319190)
 		{	
 			set_param($string_exploded[1],0);
-			$response = "La Licenza Associata all'Account ID".$string_exploded[1]." è stata Correttamente Disabilitata";
+			$response = "La Licenza Associata all'Account ID ".$string_exploded[1]." è stata Correttamente Disabilitata";
 		}
 			else if ($string_exploded[0] == "activate" && $chatId == -1001296319190)
 			{	
 				set_param($string_exploded[1],1);
-				$response = "La Licenza Associata all'Account ID".$string_exploded[1]." è stata Correttamente Abilitata";
+				$response = "La Licenza Associata all'Account ID ".$string_exploded[1]." è stata Correttamente Abilitata";
 			}
 				else
 				{
