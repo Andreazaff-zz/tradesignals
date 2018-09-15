@@ -29,7 +29,7 @@ $response = '';
 	{
 		if ($chatId == -1001296319190)
 		{
-			$response = $response = "Ciao $firstname, Benvenuto nel Pannello di Controllo Licenze di Zeus © v3.2\n\nIn questo gruppo saranno inviate tutte le licenze che verranno generate ed attivate nei vari client MT4.\n Utilizzando il comando */Delete_License* seguito da \":\" (ID Licenza) sarai in grado di disattivare da remoto la copia di Zeus © per quel Client.\nUtilizzando il comando */Activate_License* seguito da \":\" (ID Licenza) sarai invece in grado di riattivarla.\n\nTutti i diritti sono riservati. ©\n";
+			$response = $response = "Ciao $firstname, Benvenuto nel Pannello di Controllo Licenze di Zeus © v3.2\n\nIn questo gruppo saranno inviate tutte le licenze che verranno generate ed attivate nei vari client MT4.\n Utilizzando il comando <b>/Delete_License<b> seguito da \":\" (ID Licenza) sarai in grado di disattivare da remoto la copia di Zeus © per quel Client.\nUtilizzando il comando */Activate_License* seguito da \":\" (ID Licenza) sarai invece in grado di riattivarla.\n\nTutti i diritti sono riservati. ©\n";
 		}
 			else
 			{
