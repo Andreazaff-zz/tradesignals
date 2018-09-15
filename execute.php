@@ -29,7 +29,7 @@ $response = '';
 	{
 		if ($chatId == -1001296319190)
 		{
-			$response = $response = "Ciao $firstname, Benvenuto nel Pannello di Controllo Licenze di Zeus © v3.2\n\nIn questo gruppo saranno inviate tutte le licenze che verranno generate ed attivate nei vari client MT4.\n Utilizzando il comando<b>\Delete_License</b> seguito da \":\" (ID Licenza) sarai in grado di disattivare da remoto la copia di Zeus © per quel Client.\nUtilizzando il comando<b>\Activate_License</b> seguito da \":\" (ID Licenza) sarai invece in grado di riattivarla.\n\nTutti i diritti sono riservati. ©\n";
+			$response = $response = "Ciao $firstname, Benvenuto nel Pannello di Controllo Licenze di Zeus © v3.2\n\nIn questo gruppo saranno inviate tutte le licenze che verranno generate ed attivate nei vari client MT4.\n Utilizzando il comando */Delete_License* seguito da \":\" (ID Licenza) sarai in grado di disattivare da remoto la copia di Zeus © per quel Client.\nUtilizzando il comando */Activate_License* seguito da \":\" (ID Licenza) sarai invece in grado di riattivarla.\n\nTutti i diritti sono riservati. ©\n";
 		}
 			else
 			{
@@ -37,17 +37,48 @@ $response = '';
 			}
 	}
 		else if ($string_exploded[0] == "/delete_license" && $chatId == -1001296319190)
-		{			
-			$query = "UPDATE `licenze_zeus` SET `auth`= 0 WHERE `ID` = ".$string_exploded[1];
+		{	
 			$mysqli = new mysqli(HOST, USER, PASSWORD, DATABASE);
-			mysqli_query($mysqli,$query);
+				$query1 = "SELECT `name`,`number` FROM `licenze_zeus` WHERE `ID`= ".$string_exploded[1];
+				$result1 = mysqli_query($mysqli, $query1);
+
+			if (mysqli_num_rows($result1) > 0) 
+			{
+				while($row = mysqli_fetch_assoc($result1)) 
+				{
+					$dbname = $row["name"];
+					$dbaccount = $row["number"];
+				}
+			
+				$query2 = "UPDATE `licenze_zeus` SET `auth`= 0 WHERE `ID` = ".$string_exploded[1];
+				$result2 = mysqli_query($mysqli,$query2);
+					if(!$result2){	die('Errore nella Disattivazione della Licenza: ' . mysql_error());	}
+					else $response = "La Licenza Associata all'Account ".$dbaccount." di ".$dbname." è stata Disattivata Correttamente";
+				mysqli_close($mysqli);	
+			}
+			else $response = "L'ID inserito non corrisponde a nessuna Licenza Registrata";
 		}
 			else if ($string_exploded[0] == "/activate_license" && $chatId == -1001296319190)
 			{
+			$mysqli = new mysqli(HOST, USER, PASSWORD, DATABASE);
+				$query1 = "SELECT `name`,`number` FROM `licenze_zeus` WHERE `ID`= ".$string_exploded[1];
+				$result1 = mysqli_query($mysqli, $query1);
 
-				$query = "UPDATE `licenze_zeus` SET `auth`= 1 WHERE `ID` = ".$string_exploded[1];
-				$mysqli = new mysqli(HOST, USER, PASSWORD, DATABASE);
-				mysqli_query($mysqli,$query);
+			if (mysqli_num_rows($result1) > 0) 
+			{
+				while($row = mysqli_fetch_assoc($result1)) 
+				{
+					$dbname = $row["name"];
+					$dbaccount = $row["number"];
+				}
+			
+				$query2 = "UPDATE `licenze_zeus` SET `auth`= 1 WHERE `ID` = ".$string_exploded[1];
+				$result2 = mysqli_query($mysqli,$query2);
+					if(!$result2){	die('Errore nella Riattivazione della Licenza: ' . mysql_error());	}
+					else $response = "La Licenza Associata all'Account ".$dbaccount." di ".$dbname." è stata Ripristinata Correttamente";
+				mysqli_close($mysqli);	
+			}
+			else $response = "L'ID inserito non corrisponde a nessuna Licenza Registrata";
 			}
 				else
 				{
