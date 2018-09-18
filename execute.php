@@ -2,7 +2,7 @@
 
 function set_param ($id, $set)
 {
-	$url = "http://www.zeus-am.com/zeusconfig_pageupdate_list01.php?id=".$id."&set=".$set;
+	$url = "https://app-1537277791.000webhostapp.com/zeusconfig_pageupdate_list01.php?id=".$id."&set=".$set;
     $ch = curl_init();
     $optArray = array(
             CURLOPT_URL => $url,
