@@ -118,7 +118,7 @@ $response = '';
 							else if ($string_exploded[0] == "set_sell" && $chatId == -1001296319190)
 							{	
 								all_dir(2);
-								$response = "Zeus sta Impostato SHORT";
+								$response = "Zeus Impostato SHORT";
 							}
 								else if ($string_exploded[0] == "set_daylight_on" && $chatId == -1001296319190)
 								{	
