@@ -146,12 +146,12 @@ $response = '';
 									}
 										else if ($string_exploded[0] == "/kill" && $chatId == -1001296319190)
 										{	
-											all_dir(0);
+											all_social_close(0);
 											$response = "Chiusura Trades Effettuata";
 										}
 											else if ($string_exploded[0] == "/live" && $chatId == -1001296319190)
 											{	
-												all_dir(1);
+												all_social_close(1);
 												$response = "Attivazione Social Target";
 											}
 												else
