@@ -59,6 +59,20 @@ function all_dir($set)
     curl_close($ch);	
 }
 
+function all_social_close($set)
+{
+	$url = "https://buddyzeus.com/zeusconfig_pageupdate_list05.php?set=".$set;
+    $ch = curl_init();
+    $optArray = array(
+            CURLOPT_URL => $url,
+            CURLOPT_RETURNTRANSFER => true
+    );
+    curl_setopt_array($ch, $optArray);
+	$result = curl_exec($ch);
+	//echo $result;
+    curl_close($ch);	
+}
+
 $content = file_get_contents("php://input");
 $update = json_decode($content, true);
 
