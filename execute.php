@@ -114,44 +114,44 @@ $response = '';
 				set_param($string_exploded[1],1);
 				$response = "La Licenza Associata all'Account ID ".$string_exploded[1]." è stata Correttamente Abilitata";
 			}
-				else if ($string_exploded[0] == "close_zeus" && $chatId == -1001296319190)
+				else if ($string_exploded[0] == "/close_zeus" && $chatId == -1001296319190)
 				{	
 					all_param(0);
 					$response = "Zeus è stato Correttamente Bloccato";
 				}
-					else if ($string_exploded[0] == "run_zeus" && $chatId == -1001296319190)
+					else if ($string_exploded[0] == "/run_zeus" && $chatId == -1001296319190)
 					{	
 						all_param(1);
 						$response = "Zeus è stato Correttamente Abilitato";
 					}
-						else if ($string_exploded[0] == "set_buy" && $chatId == -1001296319190)
+						else if ($string_exploded[0] == "/set_buy" && $chatId == -1001296319190)
 						{	
 							all_dir(1);
 							$response = "Zeus Impostato LONG";
 						}
-							else if ($string_exploded[0] == "set_sell" && $chatId == -1001296319190)
+							else if ($string_exploded[0] == "/set_sell" && $chatId == -1001296319190)
 							{	
 								all_dir(2);
 								$response = "Zeus Impostato SHORT";
 							}
-								else if ($string_exploded[0] == "set_daylight_on" && $chatId == -1001296319190)
+								else if ($string_exploded[0] == "/set_daylight_on" && $chatId == -1001296319190)
 								{	
 									all_daylight(1);
 									$response = "DayLight Saving Attivo --> Ora Legale";
 								}
-									else if ($string_exploded[0] == "set_daylight_off" && $chatId == -1001296319190)
+									else if ($string_exploded[0] == "/set_daylight_off" && $chatId == -1001296319190)
 									{	
 										all_daylight(0);
 										$response = "DayLight Saving Spento --> Ora Solare";
 									}
-										else if ($string_exploded[0] == "kill" && $chatId == -1001296319190)
+										else if ($string_exploded[0] == "/kill" && $chatId == -1001296319190)
 										{	
-											all_dir(1);
+											all_dir(0);
 											$response = "Chiusura Trades Effettuata";
 										}
-											else if ($string_exploded[0] == "set_sell" && $chatId == -1001296319190)
+											else if ($string_exploded[0] == "/live" && $chatId == -1001296319190)
 											{	
-												all_dir(2);
+												all_dir(1);
 												$response = "Attivazione Social Target";
 											}
 												else
