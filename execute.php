@@ -144,10 +144,20 @@ $response = '';
 										all_daylight(0);
 										$response = "DayLight Saving Spento --> Ora Solare";
 									}
-										else
-										{
-											$response = "Comando Non Abilitato!\r\nContattare il Gestore del Servizio @andreazaff";
+										else if ($string_exploded[0] == "kill" && $chatId == -1001296319190)
+										{	
+											all_dir(1);
+											$response = "Chiusura Trades Effettuata";
 										}
+											else if ($string_exploded[0] == "set_sell" && $chatId == -1001296319190)
+											{	
+												all_dir(2);
+												$response = "Attivazione Social Target";
+											}
+												else
+												{
+													$response = "Comando Non Abilitato!\r\nContattare il Gestore del Servizio @andreazaff";
+												}
 
 
 header("Content-Type: application/json");
